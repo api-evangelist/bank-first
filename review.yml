@@ -1,0 +1,79 @@
+aid: bank-first
+name: Bank First
+review:
+  question: Does Bank First expose a confirmed live, public CDR Product Reference Data API, and what is its posture?
+  answer: true
+  date: '2026-07-20'
+  reviewer: API Evangelist
+  cdrPrdConfirmed: true
+  cdrBaseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+  specProvenance: |
+    The harvested OpenAPI at openapi/bank-first-cds-banking-products-openapi.yml is
+    the SHARED Data Standards Body (DSB) Consumer Data Standards "CDR Banking API"
+    specification (v1.36.0, OpenAPI 3.0.3, contact@dsb.gov.au), captured verbatim
+    from consumerdatastandardsaustralia.github.io. It is NOT a Bank First proprietary
+    contract; Bank First publishes no bank-specific OpenAPI. Bank First's public PRD
+    endpoint conforms to the getProducts (x-version 3) and getProductDetail operations
+    within this standard.
+findings:
+  summary: |
+    Bank First is an Australian customer-owned mutual bank and a CDR data holder. Its
+    public API posture is exactly what the Consumer Data Right mandates for an ADI: a
+    public, unauthenticated Product Reference Data (PRD) API built to the DSB Consumer
+    Data Standards. The PRD endpoint was confirmed live on 2026-07-20, returning HTTP
+    200 with header x-v: 3, content-type application/json, and a data.products array
+    reporting meta.totalRecords = 176 (products such as term deposits and other retail
+    offerings). No registration, API key, or OAuth token is required for PRD.
+
+    Bank First does NOT run a self-service developer portal in the modern sense. Its
+    developer-facing resource is a static "Open Banking" landing page at
+    https://www.bankfirst.com.au/open-banking that documents the Product API
+    (GET /banking/products) and Product Details API (GET /banking/products/{productId})
+    base URLs and provides a technical contact (cdrteam@bankfirst.com.au). A Consumer
+    Details API host (https://developer.cdr.bankfirst.com.au/) is referenced on that
+    page but did NOT respond to probing (curl exit / HTTP 000) and is gated behind CDR
+    accreditation; it is the authenticated consumer-data-sharing surface, not a public
+    developer portal, and was therefore not listed as a live API.
+
+    Authentication model: the PRD surface is fully public/unauthenticated. Consumer
+    data sharing (accounts, balances, transactions) follows the standard CDR model:
+    only Accredited Data Recipients (ADRs) may request it, via the CDR consent flow
+    using OAuth 2.0 / OpenID Connect hardened to the FAPI profile (CDR security
+    profile / register-based dynamic client registration). Customers never hand their
+    banking password to a third party.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking
+      documented: true
+      note: Public Product Reference Data API. Confirmed HTTP 200, x-v 3, JSON, 176 products.
+    - protocol: REST
+      scheme: https
+      note: >-
+        Authenticated CDR consumer data sharing (accounts/balances/transactions) for
+        Accredited Data Recipients only, via CDR OAuth2/OIDC FAPI consent. Host
+        developer.cdr.bankfirst.com.au did not respond to unauthenticated probing.
+      documented: true
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket surface is documented; CDR banking is REST-only.
+  endpointsConfirmedRest:
+    - GET https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+    - GET https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products/{productId}
+  authModel:
+    prd: none (public / unauthenticated)
+    consumerData: CDR Accredited Data Recipient consent, OAuth 2.0 / OIDC FAPI (CDR security profile)
+sources:
+  - url: https://www.bankfirst.com.au/open-banking
+    type: Documentation
+    note: Lists the Product API and Product Details API base URLs, CDR technical contact cdrteam@bankfirst.com.au. HTTP 200.
+  - url: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+    type: APIReference
+    note: Live PRD endpoint. Confirmed HTTP 200, x-v 3, application/json, data.products with meta.totalRecords 176.
+  - url: https://www.bankfirst.com.au/cdr-policy
+    type: Documentation
+    note: Consumer Data Right policy. HTTP 200.
+  - url: https://consumerdatastandardsaustralia.github.io/standards/includes/swagger/cds_banking.yaml
+    type: OpenAPI
+    note: Source of the harvested DSB CDR Banking API standard (v1.36.0). HTTP 200, text/yaml.

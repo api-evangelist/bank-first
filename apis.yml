@@ -1,0 +1,71 @@
+aid: bank-first
+url: https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/apis.yml
+name: Bank First
+kind: company
+description: Bank First is an Australian customer-owned mutual bank headquartered in
+  Hawthorn East, Victoria. Founded in 1972 as VTU Credit Union by members of the Victorian
+  Teachers Union and rebranded from Victoria Teachers Mutual Bank in December 2017,
+  it is owned by its 90,000-plus members rather than external shareholders and serves
+  the education and healthcare communities with savings, loans, and insurance. As an
+  Authorised Deposit-taking Institution, Bank First is a data holder under Australia's
+  Consumer Data Right (CDR / Open Banking) and exposes a public, unauthenticated Product
+  Reference Data API built to the Data Standards Body Consumer Data Standards, alongside
+  an accreditation-gated consumer data sharing surface for Accredited Data Recipients.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial
+- Banks
+- Open Banking
+- CDR
+- Consumer Banking
+- Australia
+- Mutual Bank
+- Product Reference Data
+created: '2026-07-20'
+modified: '2026-07-20'
+specificationVersion: '0.19'
+apis:
+- aid: bank-first:bank-first-cdr-product-reference-data-api
+  name: Bank First CDR Product Reference Data API
+  tags:
+  - CDR
+  - Open Banking
+  - Product Reference Data
+  - Banking Products
+  - Australia
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.bankfirst.com.au/open-banking
+  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking
+  properties:
+  - url: https://www.bankfirst.com.au/open-banking
+    type: Documentation
+  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+    type: APIReference
+  - url: openapi/bank-first-cds-banking-products-openapi.yml
+    type: OpenAPI
+  description: Public, unauthenticated Consumer Data Right Product Reference Data (PRD)
+    API conforming to the DSB Consumer Data Standards. Exposes GET /banking/products
+    (a paginated list of Bank First's publicly offered products) and GET /banking/products/{productId}
+    (full detail for a single product). Confirmed live returning HTTP 200 with x-v 3
+    and a data.products array of 176 records. No authentication or registration is
+    required for this surface.
+common:
+- type: Website
+  url: https://www.bankfirst.com.au/
+- type: About
+  url: https://www.bankfirst.com.au/about-us
+- type: DeveloperPortal
+  url: https://www.bankfirst.com.au/open-banking
+- type: Documentation
+  url: https://consumerdatastandardsaustralia.github.io/standards/
+- type: PrivacyPolicy
+  url: https://www.bankfirst.com.au/privacy-policy
+- type: TermsOfService
+  url: https://www.bankfirst.com.au/disclosure-documents
+- type: Support
+  url: https://www.bankfirst.com.au/contact-us
+- type: LinkedIn
+  url: https://www.linkedin.com/company/bank-first
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
