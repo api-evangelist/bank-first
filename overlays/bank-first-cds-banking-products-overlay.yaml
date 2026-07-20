@@ -1,0 +1,27 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Bank First CDR Product Reference Data API
+  version: 1.0.0
+extends: openapi/bank-first-cds-banking-products-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: bank-first
+      x-apievangelist-surface: cdr-product-reference-data
+      x-apievangelist-auth: none
+      x-apievangelist-note: >-
+        Public, unauthenticated PRD subset of the DSB CDR Banking standard.
+        Confirmed live at https://public.cdr.bankfirst.com.au/cds-au/v1/banking
+        returning x-v 3 with 176 products.
+  - target: $.servers
+    update:
+      - description: Bank First public PRD (production)
+        url: https://public.cdr.bankfirst.com.au/cds-au/v1
+  - target: $.paths['/banking/products'].get
+    update:
+      x-apievangelist-public: true
+      x-apievangelist-mcp-tool: list_banking_products
+  - target: $.paths['/banking/products/{productId}'].get
+    update:
+      x-apievangelist-public: true
+      x-apievangelist-mcp-tool: get_banking_product_detail

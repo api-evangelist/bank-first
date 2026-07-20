@@ -1,0 +1,38 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/bank-first-cds-banking-products-openapi.yml
+docs: https://consumerdatastandardsaustralia.github.io/standards/#authorisation-scopes
+note: >-
+  The public PRD API requires NO scopes (unauthenticated). These scopes govern the
+  CDR consumer data sharing surface, which only Accredited Data Recipients may
+  request via the CDR consent flow. The scope set below is the CDR banking + common
+  scope family referenced by the x-scopes extension on the standard's operations.
+schemes:
+  - name: CDR-OAuth2-OIDC
+    type: oauth2
+    flow: authorizationCode
+    authorizationUrl: (per-holder, discovered via CDR Register / OIDC configuration)
+    tokenUrl: (per-holder, discovered via CDR Register / OIDC configuration)
+    source: openapi/bank-first-cds-banking-products-openapi.yml
+scopes:
+  - scope: bank:accounts.basic:read
+    description: Read basic account information (masked account numbers, product category, balances context).
+    sources: [openapi/bank-first-cds-banking-products-openapi.yml]
+  - scope: bank:accounts.detail:read
+    description: Read detailed account information including account numbers and terms.
+    sources: [openapi/bank-first-cds-banking-products-openapi.yml]
+  - scope: bank:transactions:read
+    description: Read account transactions.
+    sources: [openapi/bank-first-cds-banking-products-openapi.yml]
+  - scope: bank:payees:read
+    description: Read saved payees.
+    sources: [openapi/bank-first-cds-banking-products-openapi.yml]
+  - scope: bank:regular_payments:read
+    description: Read direct debits and scheduled/regular payments.
+    sources: [openapi/bank-first-cds-banking-products-openapi.yml]
+  - scope: common:customer.basic:read
+    description: Read basic customer identity (name, organisation).
+    sources: [Consumer Data Standards]
+  - scope: common:customer.detail:read
+    description: Read detailed customer identity (contact details).
+    sources: [Consumer Data Standards]

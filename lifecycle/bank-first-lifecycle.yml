@@ -1,0 +1,33 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/bank-first-cds-banking-products-openapi.yml
+docs: https://consumerdatastandardsaustralia.github.io/standards/#versioning
+note: >-
+  Bank First tracks the DSB Consumer Data Standards. There is no bank-specific
+  status page or SLA page; lifecycle is governed by the CDR standards versioning
+  and obsolescence process.
+versioning:
+  scheme: endpoint-version-header
+  request_headers: [x-v, x-min-v]
+  current:
+    getProducts: '5'          # spec x-version for latest listBankingProducts
+    getProductDetail: '7'     # spec x-version for latest getBankingProductDetail
+  served_prd: '3'             # version confirmed live from public.cdr.bankfirst.com.au
+  standard_version: 1.36.0
+  docs: https://consumerdatastandardsaustralia.github.io/standards/#versioning
+deprecation:
+  policy: CDR endpoint versioning / obsolete-version retirement
+  detail: >-
+    Older endpoint versions are marked obsolete in the standard (e.g. product
+    detail v1-v6, product list earlier versions) and retired via the DSB
+    Maintenance Iteration / Future Dated Obligation process. Clients negotiate
+    via x-v/x-min-v.
+  sunset_header: false
+  policy_url: https://consumerdatastandardsaustralia.github.io/standards/#versioning
+deprecated_operations: []
+sla:
+  url: null
+  detail: >-
+    No published bank-specific SLA. CDR performance/availability obligations
+    (NFRs) apply to the authenticated consumer surface under the CDR Rules.
+status_page: null

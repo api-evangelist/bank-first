@@ -1,0 +1,59 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/bank-first-cds-banking-products-openapi.yml
+docs: https://consumerdatastandardsaustralia.github.io/standards/#http-headers
+note: >-
+  Cross-cutting request/response semantics for Bank First's CDR Banking API,
+  derived from the DSB Consumer Data Standards and confirmed against live PRD
+  responses on 2026-07-20.
+authentication:
+  prd: none (public)
+  consumer: CDR OAuth2/OIDC FAPI
+  ref: authentication/bank-first-authentication.yml
+versioning:
+  style: header
+  request_headers: [x-v, x-min-v]
+  response_header: x-v
+  detail: >-
+    Endpoint version is negotiated per request. Client sends x-v (requested
+    version) and optional x-min-v (minimum acceptable). Server responds with the
+    highest supported version in that range and echoes it in the x-v response
+    header. PRD getProducts confirmed serving x-v 3.
+  ref: lifecycle/bank-first-lifecycle.yml
+pagination:
+  style: page-number
+  request_params: [page, page-size]
+  page_size_default: 25
+  page_size_max: 1000
+  response_fields:
+    meta: [totalRecords, totalPages]
+    links: [self, first, prev, next, last]
+  detail: >-
+    Page-number pagination. Confirmed live: meta.totalRecords=176,
+    meta.totalPages, and a links object with self/first/prev/next/last.
+idempotency:
+  supported: false
+  detail: PRD surface is read-only (GET). No idempotency-key contract.
+tracing:
+  interaction_id_header: x-fapi-interaction-id
+  detail: >-
+    CDR FAPI headers (x-fapi-auth-date, x-fapi-customer-ip-address,
+    x-fapi-interaction-id) apply to the authenticated consumer surface; the
+    interaction id echoes back for correlation.
+error_envelope:
+  format: cds-error (CDR ErrorV2)
+  shape: '{ errors: [ { code, title, detail, meta? } ] }'
+  content_type: application/json
+  code_form: URN (urn:au-cds:error:cds-all:...)
+  ref: errors/bank-first-problem-types.yml
+rate_limiting:
+  documented: false
+  detail: >-
+    Bank First publishes no explicit PRD rate-limit headers; the CDR standards
+    define traffic-threshold obligations for authenticated sessions.
+cors:
+  enabled: true
+  detail: PRD responds with access-control-allow-origin '*' and exposes x-v/x-min-v.
+transport_security:
+  hsts: true
+  detail: PRD host returns Strict-Transport-Security max-age=63072000; includeSubDomains.

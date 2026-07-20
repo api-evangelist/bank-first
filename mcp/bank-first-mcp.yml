@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/bank-first-cds-banking-products-openapi.yml
+note: >-
+  No official Bank First MCP server exists. This is a candidate tool list derived
+  from the two public, unauthenticated Product Reference Data operations. Both
+  require no credentials, making them a clean read-only MCP surface.
+server:
+  name: bank-first
+  transport: http
+tools:
+  - name: list_banking_products
+    description: List Bank First's openly offered banking products (paginated, x-v 3). No auth.
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts
+    http: GET https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+  - name: get_banking_product_detail
+    description: Get full detail for a single product by productId. No auth.
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#getBankingProductDetail
+    http: GET https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products/{productId}

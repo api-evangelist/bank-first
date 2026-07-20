@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.bankfirst.com.au/open-banking
+docs: https://consumerdatastandardsaustralia.github.io/standards/#security-profile
+summary:
+  types: [none, oauth2, openIdConnect]
+  note: >-
+    Two distinct surfaces. The public Product Reference Data (PRD) API is fully
+    unauthenticated. The consumer data sharing surface (accounts/balances/
+    transactions) is gated behind CDR accreditation and uses OAuth 2.0 / OpenID
+    Connect hardened to the FAPI profile per the CDR security profile.
+surfaces:
+  - name: Product Reference Data (PRD)
+    baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking
+    auth: none
+    detail: >-
+      Public, unauthenticated. No API key, client registration, or token
+      required. Clients send an x-v (API version) header; the response echoes the
+      served payload version in x-v. Confirmed live HTTP 200.
+  - name: Consumer Data Sharing
+    baseURL: https://developer.cdr.bankfirst.com.au/
+    auth: oauth2
+    detail: >-
+      Restricted to Accredited Data Recipients (ADRs). Access is via the CDR
+      consent flow: OAuth 2.0 authorization-code with PKCE and OpenID Connect,
+      hardened to FAPI (CDR security profile), with mutual-TLS sender-constrained
+      tokens and register-based dynamic client registration through the ACCC CDR
+      Register. Customers never share their banking credentials with third
+      parties. Host did not respond to unauthenticated probing (gated).
+    scopes_ref: scopes/bank-first-scopes.yml
+schemes:
+  - name: CDR-OAuth2-OIDC-FAPI
+    type: oauth2
+    flow: authorizationCode
+    pkce: required
+    fapi: true
+    mtls: true
+    dynamic_client_registration: CDR Register (ACCC)
+    applies_to: Consumer Data Sharing

@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: probed
+source: live /.well-known/ probes of apis.yml + OpenAPI hosts
+note: >-
+  No /.well-known/ discovery documents are published on any Bank First host.
+  Absence is valid, recorded data. The authenticated consumer host
+  (developer.cdr.bankfirst.com.au) did not respond to unauthenticated probing
+  (HTTP 000); CDR OIDC discovery for the consumer surface is exposed only to
+  Accredited Data Recipients through the CDR Register.
+hosts:
+  - host: https://public.cdr.bankfirst.com.au
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://www.bankfirst.com.au
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+  - host: https://developer.cdr.bankfirst.com.au
+    documents:
+      - {path: /.well-known/security.txt, status: 0}
+      - {path: /.well-known/openid-configuration, status: 0}
+      - {path: /.well-known/oauth-authorization-server, status: 0}

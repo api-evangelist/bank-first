@@ -50,6 +50,8 @@ apis:
     and a data.products array of 176 records. No authentication or registration is
     required for this surface.
 common:
+- type: DomainSecurity
+  url: security/bank-first-domain-security.yml
 - type: Website
   url: https://www.bankfirst.com.au/
 - type: About
@@ -64,8 +66,38 @@ common:
   url: https://www.bankfirst.com.au/disclosure-documents
 - type: Support
   url: https://www.bankfirst.com.au/contact-us
+- type: GettingStarted
+  url: https://www.bankfirst.com.au/open-banking
+- type: Compliance
+  url: https://www.bankfirst.com.au/cdr-policy
 - type: LinkedIn
   url: https://www.linkedin.com/company/bank-first
+- type: Authentication
+  url: authentication/bank-first-authentication.yml
+- type: OAuthScopes
+  url: scopes/bank-first-scopes.yml
+- type: Conventions
+  url: conventions/bank-first-conventions.yml
+- type: ErrorCatalog
+  url: errors/bank-first-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/bank-first-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/bank-first-lifecycle.yml
+- type: Conformance
+  url: conformance/bank-first-conformance.yml
+- type: DomainSecurity
+  url: security/bank-first-domain-security.yml
+- type: DataModel
+  url: data-model/bank-first-data-model.yml
+- type: MCPServer
+  url: mcp/bank-first-mcp.yml
+- type: LLMsTxt
+  url: llms/bank-first-llms.txt
+- type: Overlay
+  url: overlays/bank-first-cds-banking-products-overlay.yaml
+- type: AgentSkill
+  url: skills/_index.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

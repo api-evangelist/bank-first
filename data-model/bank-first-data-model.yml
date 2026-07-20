@@ -1,0 +1,79 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/bank-first-cds-banking-products-openapi.yml
+docs: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+note: >-
+  Entity graph derived from the public Product Reference Data schemas
+  (ResponseBankingProductListV4 -> BankingProductV5 -> detail sub-objects). The
+  authenticated consumer surface (accounts/transactions/payees) is out of scope
+  for the public API and not modelled here.
+entities:
+  - name: BankingProduct
+    id_field: productId
+    id_type: BankingProductId (ASCIIString)
+    category_enum: BankingProductCategoryV2
+    key_fields:
+      - productId
+      - productCategory
+      - name
+      - description
+      - brand
+      - brandName
+      - isTailored
+      - lastUpdated
+      - effectiveFrom
+      - effectiveTo
+      - applicationUri
+      - additionalInformation
+      - cardArt
+    detail_only:
+      - bundles
+      - features
+      - constraints
+      - eligibility
+      - fees
+      - depositRates
+      - lendingRates
+  - name: BankingProductBundle
+    belongs_to: BankingProduct
+  - name: BankingProductFeature
+    belongs_to: BankingProduct
+  - name: BankingProductConstraint
+    belongs_to: BankingProduct
+  - name: BankingProductEligibility
+    belongs_to: BankingProduct
+  - name: BankingProductFee
+    belongs_to: BankingProduct
+  - name: BankingProductDepositRate
+    belongs_to: BankingProduct
+  - name: BankingProductLendingRate
+    belongs_to: BankingProduct
+relationships:
+  - from: BankingProduct
+    to: BankingProductBundle
+    type: has_many
+    via: bundles
+  - from: BankingProduct
+    to: BankingProductFeature
+    type: has_many
+    via: features
+  - from: BankingProduct
+    to: BankingProductConstraint
+    type: has_many
+    via: constraints
+  - from: BankingProduct
+    to: BankingProductEligibility
+    type: has_many
+    via: eligibility
+  - from: BankingProduct
+    to: BankingProductFee
+    type: has_many
+    via: fees
+  - from: BankingProduct
+    to: BankingProductDepositRate
+    type: has_many
+    via: depositRates
+  - from: BankingProduct
+    to: BankingProductLendingRate
+    type: has_many
+    via: lendingRates

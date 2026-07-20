@@ -1,0 +1,33 @@
+# Bank First
+
+> Bank First is an Australian customer-owned mutual bank (founded 1972 as VTU Credit Union, formerly Victoria Teachers Mutual Bank) serving the education and healthcare communities. As a CDR data holder it exposes a public, unauthenticated Consumer Data Right Product Reference Data (PRD) API built to the DSB Consumer Data Standards, alongside an accreditation-gated consumer data sharing surface.
+
+## APIs
+
+- [Bank First CDR Product Reference Data API](https://www.bankfirst.com.au/open-banking): Public, unauthenticated PRD API. GET /banking/products and GET /banking/products/{productId}. Base: https://public.cdr.bankfirst.com.au/cds-au/v1/banking (confirmed live, x-v 3, 176 products).
+
+## Specs
+
+- [OpenAPI (DSB CDR Banking standard v1.36.0)](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/openapi/bank-first-cds-banking-products-openapi.yml)
+- [MCP candidate tools](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/mcp/bank-first-mcp.yml)
+- [Authentication profile](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/authentication/bank-first-authentication.yml)
+- [OAuth scopes (CDR)](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/scopes/bank-first-scopes.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/conventions/bank-first-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/errors/bank-first-problem-types.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/lifecycle/bank-first-lifecycle.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/data-model/bank-first-data-model.yml)
+
+## Docs
+
+- [Open Banking landing page](https://www.bankfirst.com.au/open-banking): PRD base URLs, CDR technical contact cdrteam@bankfirst.com.au.
+- [Consumer Data Standards](https://consumerdatastandardsaustralia.github.io/standards/#banking-products): The authoritative DSB standard the PRD API conforms to.
+- [CDR policy](https://www.bankfirst.com.au/cdr-policy): Bank First's Consumer Data Right policy and compliance posture.
+- [Privacy policy](https://www.bankfirst.com.au/privacy-policy)
+- [Disclosure documents / terms](https://www.bankfirst.com.au/disclosure-documents)
+
+## Notes
+
+- The PRD surface is fully public: no API key, registration, or token required.
+- Consumer data sharing (accounts/balances/transactions) is restricted to Accredited Data Recipients via the CDR consent flow (OAuth 2.0 / OIDC, FAPI-hardened, mTLS).
+- Versioning is via x-v / x-min-v request headers; PRD serves x-v 3.
+- Pagination is page-number based (page, page-size) with meta.totalRecords and links (self/first/prev/next/last).

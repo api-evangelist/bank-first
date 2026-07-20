@@ -1,0 +1,54 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/bank-first-cds-banking-products-openapi.yml
+docs: https://consumerdatastandardsaustralia.github.io/standards/#error-codes
+format: cds-error
+envelope: '{ errors: [ { code, title, detail, meta? } ] }'
+note: >-
+  Derived from the 4xx responses on the public PRD operations (all reference
+  ResponseErrorListV2 / ErrorV2). Codes are CDR standardised URNs of the form
+  urn:au-cds:error:cds-all:... Titles/labels taken from the DSB error-code
+  reference. Not RFC 9457 — CDR uses its own ErrorV2 structure.
+problems:
+  - status: 400
+    code: urn:au-cds:error:cds-all:Field/Invalid
+    title: Invalid Field
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts
+  - status: 400
+    code: urn:au-cds:error:cds-all:Field/Missing
+    title: Missing Required Field
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts
+  - status: 400
+    code: urn:au-cds:error:cds-all:Header/Missing
+    title: Missing Required Header
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts
+  - status: 400
+    code: urn:au-cds:error:cds-all:Header/InvalidVersion
+    title: Invalid Version
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts
+  - status: 400
+    code: urn:au-cds:error:cds-all:Field/InvalidDateTime
+    title: Invalid Date
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts
+  - status: 400
+    code: urn:au-cds:error:cds-all:Field/InvalidPageSize
+    title: Invalid Page Size
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts
+  - status: 404
+    code: urn:au-cds:error:cds-all:Resource/NotFound
+    title: Unavailable Resource
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#getBankingProductDetail
+  - status: 404
+    code: urn:au-cds:error:cds-all:Resource/Invalid
+    title: Invalid Resource
+    remediation: Verify the productId against values returned by GET /banking/products.
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#getBankingProductDetail
+  - status: 406
+    code: urn:au-cds:error:cds-all:Header/UnsupportedVersion
+    title: Unsupported Version
+    remediation: Request a supported x-v; server serves highest between x-min-v and x-v.
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts
+  - status: 422
+    code: urn:au-cds:error:cds-all:Field/InvalidPage
+    title: Invalid Page
+    source_operation: openapi/bank-first-cds-banking-products-openapi.yml#listBankingProducts

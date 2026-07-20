@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: openapi/bank-first-cds-banking-products-openapi.yml
+docs: https://www.bankfirst.com.au/cdr-policy
+note: >-
+  Bank First is an Authorised Deposit-taking Institution and a CDR data holder;
+  its API conforms to the DSB Consumer Data Standards. Standards asserted below
+  are derived from the harvested standard + Bank First's published CDR posture.
+standards:
+  - id: cdr-consumer-data-standards
+    conforms: true
+    evidence: PRD API built to DSB Consumer Data Standards v1.36.0; confirmed live x-v 3.
+  - id: cdr-security-profile
+    conforms: true
+    evidence: Consumer surface uses CDR security profile (FAPI-hardened OAuth2/OIDC + mTLS).
+  - id: oauth2
+    conforms: true
+    evidence: Consumer data sharing via OAuth 2.0 authorization-code + PKCE.
+  - id: oidc
+    conforms: true
+    evidence: OpenID Connect used for CDR consent / identity.
+  - id: fapi
+    conforms: true
+    evidence: CDR security profile is a FAPI profile (x-fapi headers, mTLS-bound tokens).
+  - id: cdr-accreditation-data-holder
+    conforms: true
+    evidence: Registered CDR data holder (ADI) under Australia's Consumer Data Right.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Uses CDR ErrorV2 envelope (urn:au-cds:error:...), not RFC 9457 problem+json.
+  - id: fhir-r4
+    conforms: false
