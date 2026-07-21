@@ -153,6 +153,8 @@ apis:
     Data Recipient under the CDR consent model over the MTLS/FAPI-secured data holder
     channel; this is not an open, self-service endpoint.
 common:
+- type: AgenticAccess
+  url: agentic-access/bank-first-agentic-access.yml
 - type: DomainSecurity
   url: security/bank-first-domain-security.yml
 - type: Website
