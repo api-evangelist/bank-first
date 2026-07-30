@@ -11,7 +11,19 @@ description: Bank First is an Australian customer-owned mutual bank headquartere
   Consumer Data Right (CDR / Open Banking) and exposes a public, unauthenticated Product
   Reference Data API built to the Data Standards Body Consumer Data Standards, alongside
   an accreditation-gated consumer data sharing surface for Accredited Data Recipients.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bank-first.png
 tags:
 - Financial
 - Banks
@@ -25,133 +37,160 @@ created: '2026-07-20'
 modified: '2026-07-21'
 specificationVersion: '0.19'
 apis:
-- aid: bank-first:bank-first-cdr-product-reference-data-api
-  name: Bank First CDR Product Reference Data API
-  tags:
-  - CDR
-  - Open Banking
-  - Product Reference Data
-  - Banking Products
-  - Australia
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: bank-first:bank-first-banking-account-balances-api
+  name: Bank First Banking Account Balances API
+  description: Banking Account Balance endpoints
   humanURL: https://www.bankfirst.com.au/open-banking
   baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
-  properties:
-  - url: https://www.bankfirst.com.au/open-banking
-    type: Documentation
-  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
-    type: APIReference
-  - url: openapi/bank-first-cds-banking-products-openapi.yml
-    type: OpenAPI
-  description: Public, unauthenticated Consumer Data Right Product Reference Data (PRD)
-    API conforming to the DSB Consumer Data Standards (CDS Banking API v1.36.0). Exposes
-    GET /banking/products (a paginated list of Bank First's publicly offered products)
-    and GET /banking/products/{productId} (full detail for a single product). Confirmed
-    live returning HTTP 200 with x-v 3 and a data.products array of 176 records. No
-    authentication or registration is required for this surface.
-- aid: bank-first:bank-first-cdr-accounts-balances-api
-  name: Bank First CDR Accounts & Balances API
   tags:
-  - CDR
-  - Open Banking
+  - Banking Account Balances
+  properties:
+  - type: OpenAPI
+    url: openapi/bank-first-banking-account-balances-api-openapi.yml
+  - type: Documentation
+    url: https://www.bankfirst.com.au/open-banking
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-transactions
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-direct-debits
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
+- aid: bank-first:bank-first-banking-account-direct-debits-api
+  name: Bank First Banking Account Direct Debits API
+  description: Banking Account Direct Debit endpoints
+  humanURL: https://www.bankfirst.com.au/open-banking
+  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+  tags:
+  - Banking Account Direct Debits
+  properties:
+  - type: OpenAPI
+    url: openapi/bank-first-banking-account-direct-debits-api-openapi.yml
+  - type: Documentation
+    url: https://www.bankfirst.com.au/open-banking
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-transactions
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-direct-debits
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
+- aid: bank-first:bank-first-banking-account-scheduled-payments-api
+  name: Bank First Banking Account Scheduled Payments API
+  description: Banking Account Scheduled Payment endpoints
+  humanURL: https://www.bankfirst.com.au/open-banking
+  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+  tags:
+  - Banking Account Scheduled Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/bank-first-banking-account-scheduled-payments-api-openapi.yml
+  - type: Documentation
+    url: https://www.bankfirst.com.au/open-banking
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-transactions
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-direct-debits
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
+- aid: bank-first:bank-first-banking-account-transactions-api
+  name: Bank First Banking Account Transactions API
+  description: Banking Account Transaction endpoints
+  humanURL: https://www.bankfirst.com.au/open-banking
+  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+  tags:
+  - Banking Account Transactions
+  properties:
+  - type: OpenAPI
+    url: openapi/bank-first-banking-account-transactions-api-openapi.yml
+  - type: Documentation
+    url: https://www.bankfirst.com.au/open-banking
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-transactions
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-direct-debits
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
+- aid: bank-first:bank-first-banking-accounts-api
+  name: Bank First Banking Accounts API
+  description: Banking Account endpoints
+  humanURL: https://www.bankfirst.com.au/open-banking
+  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+  tags:
   - Banking Accounts
-  - Account Balances
-  - Australia
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.bankfirst.com.au/open-banking
-  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/accounts
   properties:
-  - url: https://www.bankfirst.com.au/open-banking
-    type: Documentation
-  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-accounts
-    type: APIReference
-  - url: openapi/bank-first-cds-banking-products-openapi.yml
-    type: OpenAPI
-  description: Consumer-authorized Consumer Data Right accounts and balances surface
-    from the DSB Consumer Data Standards (CDS Banking API v1.36.0), which Bank First
-    is legally required to implement as a Data Holder. Covers GET /banking/accounts
-    (list authorized accounts), GET /banking/accounts/balances and POST
-    /banking/accounts/balances (bulk balances), GET /banking/accounts/{accountId}/balance
-    (single balance), and GET /banking/accounts/{accountId} (account detail). NOT
-    public - access requires a customer to authorize an Accredited Data Recipient
-    through the CDR consent and MTLS/FAPI security profile; this is not an open,
-    self-service endpoint.
-- aid: bank-first:bank-first-cdr-transactions-api
-  name: Bank First CDR Transactions API
-  tags:
-  - CDR
-  - Open Banking
-  - Banking Transactions
-  - Account Transactions
-  - Australia
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - type: OpenAPI
+    url: openapi/bank-first-banking-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://www.bankfirst.com.au/open-banking
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-transactions
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-direct-debits
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
+- aid: bank-first:bank-first-banking-payees-api
+  name: Bank First Banking Payees API
+  description: Banking Payee endpoints
   humanURL: https://www.bankfirst.com.au/open-banking
-  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/accounts
-  properties:
-  - url: https://www.bankfirst.com.au/open-banking
-    type: Documentation
-  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-transactions
-    type: APIReference
-  - url: openapi/bank-first-cds-banking-products-openapi.yml
-    type: OpenAPI
-  description: Consumer-authorized Consumer Data Right transactions surface from the
-    DSB Consumer Data Standards (CDS Banking API v1.36.0). Covers GET
-    /banking/accounts/{accountId}/transactions (list transactions for an authorized
-    account, with filtering) and GET
-    /banking/accounts/{accountId}/transactions/{transactionId} (transaction detail).
-    NOT public - access requires the customer to authorize an Accredited Data
-    Recipient under the CDR consent model over the MTLS/FAPI-secured data holder
-    channel.
-- aid: bank-first:bank-first-cdr-direct-debits-scheduled-payments-api
-  name: Bank First CDR Direct Debits & Scheduled Payments API
+  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
   tags:
-  - CDR
-  - Open Banking
-  - Direct Debits
-  - Scheduled Payments
-  - Australia
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.bankfirst.com.au/open-banking
-  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/accounts
-  properties:
-  - url: https://www.bankfirst.com.au/open-banking
-    type: Documentation
-  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-direct-debits
-    type: APIReference
-  - url: openapi/bank-first-cds-banking-products-openapi.yml
-    type: OpenAPI
-  description: Consumer-authorized Consumer Data Right direct debits and scheduled
-    payments surface from the DSB Consumer Data Standards (CDS Banking API v1.36.0).
-    Covers GET /banking/accounts/{accountId}/direct-debits and POST
-    /banking/accounts/direct-debits (bulk), plus GET
-    /banking/accounts/{accountId}/payments/scheduled and POST
-    /banking/payments/scheduled (bulk scheduled payments). NOT public - access
-    requires customer authorization of an Accredited Data Recipient under the CDR
-    consent model over the MTLS/FAPI-secured data holder channel.
-- aid: bank-first:bank-first-cdr-payees-api
-  name: Bank First CDR Payees API
-  tags:
-  - CDR
-  - Open Banking
   - Banking Payees
-  - Payees
-  - Australia
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://www.bankfirst.com.au/open-banking
-  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/payees
   properties:
-  - url: https://www.bankfirst.com.au/open-banking
-    type: Documentation
-  - url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
-    type: APIReference
-  - url: openapi/bank-first-cds-banking-products-openapi.yml
-    type: OpenAPI
-  description: Consumer-authorized Consumer Data Right payees surface from the DSB
-    Consumer Data Standards (CDS Banking API v1.36.0). Covers GET /banking/payees
-    (list a customer's saved payees) and GET /banking/payees/{payeeId} (payee
-    detail). NOT public - access requires the customer to authorize an Accredited
-    Data Recipient under the CDR consent model over the MTLS/FAPI-secured data holder
-    channel; this is not an open, self-service endpoint.
+  - type: OpenAPI
+    url: openapi/bank-first-banking-payees-api-openapi.yml
+  - type: Documentation
+    url: https://www.bankfirst.com.au/open-banking
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-transactions
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-direct-debits
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
+- aid: bank-first:bank-first-banking-products-api
+  name: Bank First Banking Products API
+  description: Banking Product endpoints
+  humanURL: https://www.bankfirst.com.au/open-banking
+  baseURL: https://public.cdr.bankfirst.com.au/cds-au/v1/banking/products
+  tags:
+  - Banking Products
+  properties:
+  - type: OpenAPI
+    url: openapi/bank-first-banking-products-api-openapi.yml
+  - type: Documentation
+    url: https://www.bankfirst.com.au/open-banking
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-products
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-accounts
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-transactions
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-direct-debits
+  - type: APIReference
+    url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
 common:
 - type: AgenticAccess
   url: agentic-access/bank-first-agentic-access.yml
