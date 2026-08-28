@@ -11,6 +11,18 @@ description: Bank First is an Australian customer-owned mutual bank headquartere
   Consumer Data Right (CDR / Open Banking) and exposes a public, unauthenticated Product
   Reference Data API built to the Data Standards Body Consumer Data Standards, alongside
   an accreditation-gated consumer data sharing surface for Accredited Data Recipients.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
