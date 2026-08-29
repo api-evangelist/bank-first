@@ -204,6 +204,9 @@ apis:
   - type: APIReference
     url: https://consumerdatastandardsaustralia.github.io/standards/#banking-payees
 common:
+- type: CapabilityMap
+  url: capabilities/bank-first-capability-edges.yml
+  name: Bank First Business Capability Map
 - type: AgenticAccess
   url: agentic-access/bank-first-agentic-access.yml
 - type: DomainSecurity
