@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/bank-first/integrations
+- https://n8n.io/integrations/bank-first/
+- https://composio.dev/toolkits/bank-first
+- https://monid.ai/tools/bank-first
+checked:
+- https://composio.dev/toolkits/bank-first
+- https://monid.ai/tools/bank-first
+- https://n8n.io/integrations/bank-first/
+- https://zapier.com/apps/bank-first/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
