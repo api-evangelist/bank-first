@@ -1,4 +1,4 @@
-# Bank First (bank-first)
+# Bank First
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,63 +64,134 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Bank First is an Australian customer-owned mutual bank headquartered in Hawthorn East, Victoria. Founded in 1972 as VTU Credit Union by members of the Victorian Teachers Union and rebranded from Victoria Teachers Mutual Bank in December 2017, it is owned by its 90,000-plus members rather than external shareholders and serves the education and healthcare communities. As an Authorised Deposit-taking Institution (ADI), Bank First is a data holder under Australia's Consumer Data Right (CDR / Open Banking) and publishes a public, unauthenticated Product Reference Data API built to the Data Standards Body Consumer Data Standards.
+Bank First is an Australian customer-owned mutual bank headquartered in Hawthorn East, Victoria. Founded in 1972 as VTU Credit Union by members of the Victorian Teachers Union and rebranded from Victoria Teachers Mutual Bank in December 2017, it is owned by its 90,000-plus members rather than external shareholders and serves the education and healthcare communities with savings, loans, and insurance. As an Authorised Deposit-taking Institution, Bank First is a data holder under Australia's Consumer Data Right (CDR / Open Banking) and exposes a public, unauthenticated Product Reference Data API built to the Data Standards Body Consumer Data Standards, alongside an accreditation-gated consumer data sharing surface for Accredited Data Recipients.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bank-first/refs/heads/main/apis.yml)
+**Areas:** Finance · Banks · Open Banking · CDR · Consumer Banking · Australia · Mutual Bank · Product Reference Data
 
-## Tags
+## Bank First on APIs.io
 
-- Financial
-- Banks
-- Open Banking
-- CDR
-- Consumer Banking
-- Australia
-- Mutual Bank
-- Product Reference Data
+Everything profiled for Bank First is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bank-first/](https://apis.io/providers/bank-first/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-07-20
-- **Modified:** 2026-07-20
+- [Bank First Banking Account Balances API](https://apis.io/apis/bank-first/bank-first-banking-account-balances-api/) — Banking Account Balance endpoints
+- [Bank First Banking Account Direct Debits API](https://apis.io/apis/bank-first/bank-first-banking-account-direct-debits-api/) — Banking Account Direct Debit endpoints
+- [Bank First Banking Account Scheduled Payments API](https://apis.io/apis/bank-first/bank-first-banking-account-scheduled-payments-api/) — Banking Account Scheduled Payment endpoints
+- [Bank First Banking Account Transactions API](https://apis.io/apis/bank-first/bank-first-banking-account-transactions-api/) — Banking Account Transaction endpoints
+- [Bank First Banking Accounts API](https://apis.io/apis/bank-first/bank-first-banking-accounts-api/) — Banking Account endpoints
+- [Bank First Banking Payees API](https://apis.io/apis/bank-first/bank-first-banking-payees-api/) — Banking Payee endpoints
+- [Bank First Banking Products API](https://apis.io/apis/bank-first/bank-first-banking-products-api/) — Banking Product endpoints
 
-## APIs
+### Published properties
 
-### Bank First CDR Product Reference Data API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Public, unauthenticated Consumer Data Right Product Reference Data (PRD) API conforming to the DSB Consumer Data Standards. Exposes `GET /banking/products` (a paginated list of Bank First's publicly offered products) and `GET /banking/products/{productId}` (full detail for a single product). Confirmed live on 2026-07-20 returning HTTP 200 with header `x-v: 3` and a `data.products` array of 176 records. No authentication or registration is required.
+#### MCP servers (1)
 
-- **Human URL:** [https://www.bankfirst.com.au/open-banking](https://www.bankfirst.com.au/open-banking)
-- **Base URL:** `https://public.cdr.bankfirst.com.au/cds-au/v1/banking`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [bank-first](https://apis.io/servers/bank-first/bank-first/)
 
-- CDR
-- Open Banking
-- Product Reference Data
-- Banking Products
-- Australia
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://www.bankfirst.com.au/open-banking)
-- [API Reference](https://consumerdatastandardsaustralia.github.io/standards/#banking-products)
-- [OpenAPI](openapi/bank-first-cds-banking-products-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Bank First Agentic Access](https://apis.io/agentic-access/bank-first/bank-first-agentic-access/)
 
-> The harvested OpenAPI is the shared DSB Consumer Data Standards "CDR Banking API" (v1.36.0), captured verbatim — not a Bank First proprietary contract. Bank First's PRD endpoint conforms to its `getProducts` and `getProductDetail` operations.
+#### Collections (7)
 
-## Common Properties
+Postman and Open Collection request collections.
+
+- [CDR Banking Banking Account Balances API](https://apis.io/collections/bank-first/open-bank-first-banking-account-balances-api/)
+- [CDR Banking Banking Account Balances Banking Account Direct Debits API](https://apis.io/collections/bank-first/open-bank-first-banking-account-direct-debits-api/)
+- [CDR Banking Banking Account Balances Banking Account Scheduled Payments API](https://apis.io/collections/bank-first/open-bank-first-banking-account-scheduled-payments-api/)
+- [CDR Banking Banking Account Balances Banking Account Transactions API](https://apis.io/collections/bank-first/open-bank-first-banking-account-transactions-api/)
+- [CDR Banking Banking Account Balances Banking Accounts API](https://apis.io/collections/bank-first/open-bank-first-banking-accounts-api/)
+- [CDR Banking Banking Account Balances Banking Payees API](https://apis.io/collections/bank-first/open-bank-first-banking-payees-api/)
+- [CDR Banking Banking Account Balances Banking Products API](https://apis.io/collections/bank-first/open-bank-first-banking-products-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Bank First Cds Banking Products Overlay](https://apis.io/overlays/bank-first/bank-first-cds-banking-products-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Bank First Authentication](https://apis.io/security/bank-first/bank-first-authentication/)
+- [Bank First Domain Security](https://apis.io/security/bank-first/bank-first-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Bank First Scopes](https://apis.io/scopes/bank-first/bank-first-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.bankfirst.com.au/)
-- [About](https://www.bankfirst.com.au/about-us)
-- [Developer Portal](https://www.bankfirst.com.au/open-banking)
 - [Documentation](https://consumerdatastandardsaustralia.github.io/standards/)
-- [Privacy Policy](https://www.bankfirst.com.au/privacy-policy)
-- [Terms of Service](https://www.bankfirst.com.au/disclosure-documents)
+- [Getting started](https://www.bankfirst.com.au/open-banking)
 - [Support](https://www.bankfirst.com.au/contact-us)
-- [LinkedIn](https://www.linkedin.com/company/bank-first)
+- [Compliance](https://www.bankfirst.com.au/cdr-policy)
+- [Terms of service](https://www.bankfirst.com.au/disclosure-documents)
+- [Privacy policy](https://www.bankfirst.com.au/privacy-policy)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 42.2** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 44.7 |
+| Contract governance | 18.2 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 56.5 |
+| Access clarity | 28.9 |
+
+**Agent readiness 25.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 48.0** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bank-first/](https://apis.io/providers/bank-first/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bank First: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bank-first/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
